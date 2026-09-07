@@ -1,0 +1,122 @@
+{
+  "cv_roc_auc": 0.7651,
+  "cv_pr_auc": 0.2525,
+  "fold_aucs": [
+    0.7636,
+    0.7693,
+    0.7627,
+    0.7689,
+    0.7611
+  ],
+  "n_folds": 5,
+  "n_features": 138,
+  "n_samples": 307511,
+  "default_rate": 0.0807,
+  "scale_pos_weight": 10,
+  "confusion_matrix": {
+    "threshold": 0.14,
+    "threshold_space": "calibrated probability",
+    "TN": 248955,
+    "FP": 33731,
+    "FN": 14021,
+    "TP": 10804
+  },
+  "operating_point": {
+    "threshold": 0.14,
+    "precision": 0.2426,
+    "recall": 0.4352,
+    "f1": 0.3115
+  },
+  "calibration": {
+    "method": "prior correction: p / (p + (1-p) * scale_pos_weight)",
+    "scale_pos_weight": 10,
+    "oof_brier_raw": 0.161,
+    "oof_brier_calibrated": 0.0676,
+    "mean_calibrated_probability": 0.0707,
+    "actual_default_rate": 0.0807,
+    "deciles": [
+      {
+        "decile": 1,
+        "mean_predicted": 0.0073,
+        "actual_default_rate": 0.0114,
+        "n": 30752
+      },
+      {
+        "decile": 2,
+        "mean_predicted": 0.0138,
+        "actual_default_rate": 0.0178,
+        "n": 30751
+      },
+      {
+        "decile": 3,
+        "mean_predicted": 0.0202,
+        "actual_default_rate": 0.0258,
+        "n": 30751
+      },
+      {
+        "decile": 4,
+        "mean_predicted": 0.0278,
+        "actual_default_rate": 0.0351,
+        "n": 30751
+      },
+      {
+        "decile": 5,
+        "mean_predicted": 0.0374,
+        "actual_default_rate": 0.0475,
+        "n": 30751
+      },
+      {
+        "decile": 6,
+        "mean_predicted": 0.0501,
+        "actual_default_rate": 0.0598,
+        "n": 30751
+      },
+      {
+        "decile": 7,
+        "mean_predicted": 0.0677,
+        "actual_default_rate": 0.0772,
+        "n": 30751
+      },
+      {
+        "decile": 8,
+        "mean_predicted": 0.0941,
+        "actual_default_rate": 0.1039,
+        "n": 30751
+      },
+      {
+        "decile": 9,
+        "mean_predicted": 0.1387,
+        "actual_default_rate": 0.1534,
+        "n": 30751
+      },
+      {
+        "decile": 10,
+        "mean_predicted": 0.2504,
+        "actual_default_rate": 0.2754,
+        "n": 30751
+      }
+    ]
+  },
+  "top_features": {
+    "DAYS_ID_PUBLISH": 2045,
+    "DAYS_LAST_PHONE_CHANGE": 2018,
+    "DAYS_REGISTRATION": 1993,
+    "bureau_avg_days_credit": 1919,
+    "credit_goods_ratio": 1880,
+    "ext_source_mean": 1872,
+    "AMT_ANNUITY": 1853,
+    "EXT_SOURCE_3": 1821,
+    "ext_source_min": 1778,
+    "EXT_SOURCE_2": 1766,
+    "annuity_income_ratio": 1747,
+    "credit_income_ratio": 1631,
+    "bureau_avg_amt_credit_sum": 1584,
+    "bureau_max_amt_credit_sum": 1575,
+    "DAYS_BIRTH": 1477,
+    "REGION_POPULATION_RELATIVE": 1464,
+    "bureau_debt_ratio": 1355,
+    "AMT_CREDIT": 1346,
+    "employment_age_ratio": 1344,
+    "EXT_SOURCE_1": 1294
+  }
+}

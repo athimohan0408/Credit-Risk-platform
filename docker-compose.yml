@@ -1,0 +1,45 @@
+services:
+  api:
+    build: .
+    image: credit-risk-api:latest
+    container_name: credit_risk_api
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    environment:
+      # Where the container should look for the Kaggle CSVs (see the mount below).
+      DATA_DIR: /data_host
+    volumes:
+      # Raw Kaggle CSVs from the host, read-only. Only needed if you rebuild the
+      # SQLite DB or retrain inside the container.
+      - ../:/data_host:ro
+      # Pre-trained artifacts (model, encoders, medians, rules, SQLite DB) so the
+      # container never has to retrain.
+      - ./models:/app/models
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request,sys; sys.exit(0 if urllib.request.urlopen('http://127.0.0.1:8000/health', timeout=5).status==200 else 1)"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 40s
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      args:
+        # Relative path, so the browser calls the same origin it loaded the page
+        # from and nginx proxies /api/ through to the api service. Pointing this
+        # at http://localhost:8000 instead would bypass the proxy and break for
+        # anyone reaching the UI from another host.
+        - VITE_API_URL=/api
+    image: credit-risk-frontend:latest
+    container_name: credit_risk_frontend
+    ports:
+      - "8080:80"
+    depends_on:
+      api:
+        condition: service_healthy
+    restart: unless-stopped

@@ -1,0 +1,204 @@
+:root {
+  font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color-scheme: dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #0f0c29;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  min-width: 320px;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+  color: #e0e0ff;
+}
+
+#root {
+  display: flex;
+  width: 100%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #fff;
+  margin-top: 0;
+}
+
+a {
+  font-weight: 500;
+  color: #a18cd1;
+  text-decoration: inherit;
+  transition: color 0.25s;
+}
+a:hover { color: #fbc2eb; }
+
+/* ─── Glassmorphism ─────────────────────────────────────── */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 24px;
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  padding: 1.2rem 1.5rem;
+  transition: transform 0.2s, background 0.2s;
+}
+.glass-card:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+.glass-input {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  color: white;
+  padding: 10px 14px;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.2s;
+  width: 100%;
+  box-sizing: border-box;
+}
+.glass-input:focus { border-color: #a18cd1; }
+
+select.glass-input option {
+  background: #1a1a3e;
+  color: #e0e0ff;
+}
+
+.glass-button {
+  background: linear-gradient(135deg, #a18cd1, #fbc2eb);
+  color: #1a1a2e;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: opacity 0.2s, transform 0.1s;
+}
+.glass-button:hover { opacity: 0.9; }
+.glass-button:active { transform: scale(0.98); }
+.glass-button:disabled { opacity: 0.5; cursor: not-allowed; }
+
+/* ─── Metrics ──────────────────────────────────────────── */
+.metric-value {
+  font-size: 2.2rem;
+  font-weight: 700;
+  background: linear-gradient(90deg, #a18cd1, #fbc2eb);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 8px 0 4px;
+}
+.metric-label {
+  color: #aaa;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* ─── Sidebar ───────────────────────────────────────────── */
+.sidebar {
+  width: 240px;
+  background: rgba(15, 12, 41, 0.8);
+  backdrop-filter: blur(10px);
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 16px;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+.main-content {
+  flex: 1;
+  padding: 32px 36px;
+  overflow-y: auto;
+  box-sizing: border-box;
+  max-height: 100vh;
+}
+
+/* ─── Risk pills ────────────────────────────────────────── */
+.risk-pill {
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  display: inline-block;
+}
+.risk-low    { background: rgba(46,204,113,0.15);  color: #2ecc71; border: 1px solid #2ecc71; }
+.risk-medium { background: rgba(243,156,18,0.15);  color: #f39c12; border: 1px solid #f39c12; }
+.risk-high   { background: rgba(231,76,60,0.15);   color: #e74c3c; border: 1px solid #e74c3c; }
+
+/* ─── Rule cards ────────────────────────────────────────── */
+.rule-card-custom {
+  background: rgba(161, 140, 209, 0.05);
+  border-left: 4px solid #a18cd1;
+  border-radius: 8px;
+  padding: 1rem 1.2rem;
+  margin: 0.8rem 0;
+}
+
+/* ─── Chat bubbles ──────────────────────────────────────── */
+.user-bubble {
+  background: rgba(161, 140, 209, 0.25);
+  border-radius: 14px 14px 0 14px;
+  padding: 10px 16px;
+  color: #e0e0ff;
+  max-width: 70%;
+  font-size: 0.92rem;
+}
+.bot-bubble {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 14px 14px 14px 0;
+  padding: 12px 16px;
+  color: #ddd;
+  font-size: 0.9rem;
+}
+.chat-container { display: flex; flex-direction: column; }
+
+/* ─── Spinner ───────────────────────────────────────────── */
+.spinner {
+  width: 36px;
+  height: 36px;
+  border: 3px solid rgba(161,140,209,0.2);
+  border-top-color: #a18cd1;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin: 0 auto;
+}
+
+/* ─── Animations ────────────────────────────────────────── */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes bounce {
+  0%, 80%, 100% { transform: translateY(0);    opacity: 0.4; }
+  40%           { transform: translateY(-6px); opacity: 1;   }
+}
+
+/* ─── Scrollbar ─────────────────────────────────────────── */
+::-webkit-scrollbar       { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: rgba(255,255,255,0.03); }
+::-webkit-scrollbar-thumb { background: rgba(161,140,209,0.4); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(161,140,209,0.7); }

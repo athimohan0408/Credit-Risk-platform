@@ -1,0 +1,43 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+venv/
+env/
+.venv/
+
+# Environment
+.env
+
+# Models (large binary artifacts — regenerate with `python -m src.ml.train`)
+models/lgbm_model.pkl
+models/feature_cols.pkl
+models/cat_encoders.pkl
+models/train_medians.pkl
+models/oof_predictions.npy
+models/credit_risk.db
+models/submission.csv
+
+# Keep metrics and rules in git
+!models/metrics.json
+!models/business_rules.json
+
+# Node
+frontend/node_modules/
+frontend/dist/
+
+# Raw Kaggle CSVs — far too large for git
+data/
+*.csv
+!models/metrics.json
+
+# Screenshots and the generated deck ARE deliverables — keep them tracked.
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS
+.DS_Store
+Thumbs.db
